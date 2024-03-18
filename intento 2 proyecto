@@ -1,0 +1,30 @@
+class Producto {
+    constructor(nombre, precio, descripcion) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.descripcion = descripcion;
+    }
+
+    obtenerDetalles() {
+        return `<div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${this.nombre}</h5>
+                        <p class="card-text">Precio: ${this.precio}</p>
+                        <p class="card-text">${this.descripcion}</p>
+                    </div>
+                </div>`;
+    }
+}
+
+const productos = [
+    new Producto("Camisa Azul", 20, "Camisa de color azul"),
+    new Producto("Camisa Roja", 30, "Camisa de color rojo"),
+    new Producto("Camisa Verde", 25, "Camisa de color verde")
+];
+
+const productListDiv = document.createElement("div");
+productos.forEach(producto => {
+    productListDiv.innerHTML += producto.obtenerDetalles();
+});
+
+document.body.appendChild(productListDiv);
