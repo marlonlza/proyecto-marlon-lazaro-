@@ -1,0 +1,28 @@
+   this.precio = precio;
+        this.descripcion = descripcion;
+    }
+
+    obtenerDetalles() {
+        return `<div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${this.nombre}</h5>
+                        <p class="card-text">Precio: ${this.precio}</p>
+                        <p class="card-text">${this.descripcion}</p>
+                    </div>
+                </div>`;
+    }
+}
+
+const productos = [
+    new Producto("Producto 1", 20, "camisa color azul "),
+    new Producto("Producto 2", 30, "camisa color rojo "),
+    new Producto("Producto 3", 25, "camisa color verde ")
+];
+
+const productListDiv = document.createElement("div");
+productos.forEach(producto => {
+    productListDiv.innerHTML += producto.obtenerDetalles();
+});
+
+document.body.appendChild(productListDiv);
+
